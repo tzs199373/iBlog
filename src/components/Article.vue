@@ -56,7 +56,10 @@
       },
       handleCurrentChange: function(currentPage){
         this.currentPage = currentPage;
-          this.dataList = [{url:"http://www.w3school.com.cn",title:"W3School",author:"tzs",createTime:"2021-01-10"}];
+          this.dataList = [
+              {url:"./mysql存储结构简单剖析.html",title:"mysql存储结构简单剖析",author:"tzs",createTime:"2021-01-10"},
+              {url:"./mysql存储流程简单剖析.html",title:"mysql存储流程简单剖析",author:"tzs",createTime:"2021-01-10"}
+            ];
           this.totalCount = 1;
       },
       qryArticleList:function () {
