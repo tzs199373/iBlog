@@ -7,6 +7,10 @@
       <el-container>
         <el-aside>
           <el-menu :default-active="defaultActive" style="height: 100%">
+            <el-menu-item index="" @click="redirectUrl('/card')">
+              <i class="el-icon-menu"></i>
+              <span slot="title">我的名片</span>
+            </el-menu-item>
             <el-menu-item index="" @click="redirectUrl('/article')">
               <i class="el-icon-menu"></i>
               <span slot="title">我的文章</span>
