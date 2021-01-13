@@ -2,7 +2,7 @@
   <div class="cantainer">
     <el-row>
       <el-input
-        placeholder="请输入内容"
+        placeholder="标题关键字"
         v-model="search_input" >
         <i slot="suffix" class="el-input__icon el-icon-search" @click="qryArticleList()"></i>
       </el-input>
