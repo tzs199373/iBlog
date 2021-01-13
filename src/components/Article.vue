@@ -8,7 +8,7 @@
       </el-input>
     </el-row>
     <el-table style="width: 100%;"
-              :data="dataList">
+              :data="showList">
       <el-table-column type="index" width="50">
       </el-table-column>
       <el-table-column label="标题"  width="180">
@@ -40,9 +40,13 @@
       return {
         currentPage:1,
         pageSize:10,
-        totalCount:0,
-        dataList: [],
+        totalCount:2,
+        dataList : [
+          {url:"./mysql存储结构简单剖析.html",title:"mysql存储结构简单剖析",author:"tzs",createTime:"2021-01-10"},
+          {url:"./mysql存储流程简单剖析.html",title:"mysql存储流程简单剖析",author:"tzs",createTime:"2021-01-10"}
+        ],
         search_input:"",
+        showList:[]
       }
     },
     created() {
@@ -56,14 +60,22 @@
       },
       handleCurrentChange: function(currentPage){
         this.currentPage = currentPage;
-          this.dataList = [
-              {url:"./mysql存储结构简单剖析.html",title:"mysql存储结构简单剖析",author:"tzs",createTime:"2021-01-10"},
-              {url:"./mysql存储流程简单剖析.html",title:"mysql存储流程简单剖析",author:"tzs",createTime:"2021-01-10"}
-            ];
-          this.totalCount = 1;
+        this.showList = this.dataList;
       },
       qryArticleList:function () {
-        alert(this.search_input)
+        this.showList = [];
+
+        let _search_input = this.search_input;
+        let _showList = this.showList;
+        let _totalCount = 0;
+
+        this.dataList.forEach(function(item, index, array){
+          if(item.title.indexOf(_search_input) != -1){
+            _showList.push(item);
+            _totalCount++;
+          }
+        });
+        this.totalCount = _totalCount;
       }
     }
   }
